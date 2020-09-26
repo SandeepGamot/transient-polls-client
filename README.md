@@ -1,2 +1,2 @@
 # transient-polls-client
-Created with CodeSandbox
+A React client for the transient-polls backend.
