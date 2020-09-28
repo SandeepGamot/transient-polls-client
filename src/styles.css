@@ -2,3 +2,18 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+::-webkit-scrollbar {
+  width: 10px; /* for vertical scrollbars */
+  height: 5px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(117, 117, 117, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(116, 116, 116, 0.2);
+  border-radius: 10px;
+}
