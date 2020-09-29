@@ -3,8 +3,12 @@
   text-align: center;
 }
 
+::selection {
+  background-color: #2d3748;
+  color: white;
+}
 ::-webkit-scrollbar {
-  width: 10px; /* for vertical scrollbars */
+  width: 5px; /* for vertical scrollbars */
   height: 5px; /* for horizontal scrollbars */
 }
 

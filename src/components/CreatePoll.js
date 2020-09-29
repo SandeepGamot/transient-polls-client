@@ -7,7 +7,7 @@ function CreatePoll() {
   const choiceInputRef = useRef(null);
 
   const isMinValidationSatisfied = choices.length >= 2;
-
+  const isValidQuestion = question.trim().length > 0;
   const questionInputStyle =
     "text-lg rounded-md md:text-xl lg:text-2xl w-11/12 md:w-/12 lg:w-9/12 max-w-xl text-center border-2 focus:border-4 focus:border-gray-800  text-gray-700 font-semibold focus:text-gray-800 focus:font-bold overflow-x-auto";
   const questionDisplayStyle =
@@ -34,7 +34,9 @@ function CreatePoll() {
     setChoices(choices.filter((choice) => choice.id !== id));
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    console.log("Handle submit");
+  };
 
   const allChoices = choices.map((choice) => (
     <div key={choice.id} className="flex justify-center my-4">
@@ -57,9 +59,7 @@ function CreatePoll() {
       <div className="mt-24 mb-12 overflow-x-auto w-full">
         <input
           className={
-            question.trim().length > 0
-              ? questionDisplayStyle
-              : questionInputStyle
+            isValidQuestion ? questionDisplayStyle : questionInputStyle
           }
           value={question}
           onKeyDown={(event) => {
@@ -87,7 +87,7 @@ function CreatePoll() {
           </div>
           <button
             onClick={addChoice}
-            className="mt-4 text-white bg-blue-600 hover:bg-blue-500 px-8 py-2 rounded"
+            className="mt-4 text-white bg-blue-600 hover:bg-blue-500 px-8 py-2 rounded shadow-md"
           >
             Add
           </button>
@@ -100,10 +100,14 @@ function CreatePoll() {
       ) : undefined}
       <div className="{w_all}">
         <button
-          onClick={isMinValidationSatisfied ? handleSubmit : undefined}
+          onClick={
+            isMinValidationSatisfied && isValidQuestion
+              ? handleSubmit
+              : undefined
+          }
           className={
-            isMinValidationSatisfied
-              ? "mt-16 bg-green-600 hover:bg-green-500 text-white py-2 px-16 md:px-20 lg:px-32 rounded text-lg font-semibold"
+            isMinValidationSatisfied && isValidQuestion
+              ? "mt-16 bg-green-600 hover:bg-green-500 text-white py-2 px-16 md:px-20 lg:px-32 rounded text-lg font-semibold shadow-lg"
               : "mt-16 bg-gray-300 text-white py-2 px-16 md:px-20 lg:px-32 rounded text-lg font-semibold focus:outline-none cursor-not-allowed"
           }
         >
