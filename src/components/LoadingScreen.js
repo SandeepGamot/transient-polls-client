@@ -22,6 +22,6 @@ const LoadingScreen = ({ displayText }) => {
 };
 
 LoadingScreen.defaultProps = {
-  displayText: "Loading..."
+  displayText: "Loading...",
 };
 export default LoadingScreen;

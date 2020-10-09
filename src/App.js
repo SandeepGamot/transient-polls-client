@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import CreatePoll from "./components/CreatePoll";
-import PollDetailView from "./components/PollDetailView";
-import _404 from "./components/_404";
-import _5xx from "./components/_5xx";
+import CreatePoll from "./pages/CreatePoll";
+import LandingPage from "./pages/LandingPage";
+import PollDetailView from "./pages/PollDetailView";
+import _404 from "./pages/_404";
+import _5xx from "./pages/_5xx";
 import Mock from "./Mock";
 import "./styles.css";
 
@@ -14,6 +15,9 @@ export default function App() {
   ) : (
     <Router>
       <Switch>
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
         <Route path="/polls/create">
           <CreatePoll />
         </Route>

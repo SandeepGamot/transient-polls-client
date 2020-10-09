@@ -18,6 +18,6 @@ const ResultBar = ({ percent }) => (
 );
 
 ResultBar.defaultProps = {
-  percent: "No percent props"
+  percent: "No percent props",
 };
 export default ResultBar;

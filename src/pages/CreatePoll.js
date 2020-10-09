@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import { api } from "../config";
-import LoadingScreen from "./LoadingScreen";
-import ShareUrl from "./ShareUrl";
+import LoadingScreen from "../components/LoadingScreen";
+import ShareUrl from "../components/ShareUrl";
 
 function CreatePoll() {
   const [question, setQuestion] = useState("");

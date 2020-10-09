@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import Question from "./Question";
-import Answer from "./Answer";
-import LoadingScreen from "./LoadingScreen";
+import Question from "../components/Question";
+import Answer from "../components/Answer";
+import LoadingScreen from "../components/LoadingScreen";
 import { api } from "../config";
 import getHoursRemaining from "../utils/getHoursRemaining";
 import getPercentage from "../utils/getPercentage";
@@ -19,6 +19,7 @@ function PollDetailView() {
   axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
   useEffect(() => {
+    if (id in localStorage) setVoted(true);
     axios
       .get(`${api.baseUrl}/${id}`)
       .then((response) => {
@@ -43,6 +44,7 @@ function PollDetailView() {
     axios
       .patch(`${api.baseUrl}/${id}/${choiceId}`)
       .then((response) => {
+        window.localStorage.setItem(id, "1");
         setVoted(true);
         setData(response.data);
         setLoading(false);
